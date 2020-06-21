@@ -21,18 +21,32 @@
 // THEN I can save my initials and score
 
 var scoreCount
+//how do i keep track of score as users answer questions and lose time
 var timer
-var questionArray = [{q: "What?", a:"yes", correct:"yes"}]
+//countdown by one second but also lose a bunch of time when they chose wrong answer
+var questionArray = [
+    {q: "A very useful tool used during development and debugging for printing content to the debugger is?", a:"yes", correct:"yes",
+    q: "Who invented JavaScript", a:"Thomas Edison", correct:"unknown",
+    q: "What program is usually regarded for its aesthetic qualities?" , a: "CSS" , correct: "CSS",
+    q: "Programs we used for this quiz include:" , a:"All of the Below", correct: "All of the Below"}
+]
 
 function startGame(){
+    start.addEventListener("onclick", midGame);
+    timer(); //make this run after the click 
     //user clicks on start game and questions appear
-    //use document.QuerySelector to change the text of questions and answers
-
+    
 
 }
 
-function midGame(){}
-//for questions changing, etc.
+function midGame(){
+    //Change questions
+    //Check for and display correct/incorrect answers
+    //Run time and subtract for incorrect answer
+    //use document.QuerySelector to change the text of questions and answers
+    document.querySelector(questionArray);
+}
+
 
 function endGame(){
     //Game ends, score is displayed;
@@ -48,3 +62,5 @@ function timer(){
 
 
 }
+
+var randomText = (i=0, i>"questionArray", i++ );
