@@ -22,7 +22,47 @@
 
 var scoreCount
 var timer
-var questionArray = [{q: "What?", a:"yes", correct:"yes"}]
+var questionArray = [
+    {q: "What?", a:"yes", b: "no" , correct:"yes" ,
+    q: "Why?" , a: "yes" , b: "no" , correct: "no" ,
+    q: "How" , a: "yes" , b: "no" , correct: "no" ,
+    q: "When" , a: "now" , b: "later" , correct: "now"}
+]
+var button = document.getElementById("questionArray")
+var i = 0
+button.addEventListener("click", function(){
+​
+var question = document.getElementById("question")
+question.innerText = questionArray[i].q
+​
+​
+var label = document.getElementById("label1")
+label.innerText = questionArray[i].a
+​
+var label = document.getElementById("label2")
+label.innerText = questionArray[i].b
+​
+var label = document.getElementById("label3")
+label.innerText = questionArray[i].c
+​
+var label = document.getElementById("label4")
+label.innerText = questionArray[i].d
+​
+i++
+var answer = document.getElementById("answer1")
+answer.value = label.innerText = questionArray[2].a
+​
+answer.addEventListener("click", function(){
+    console.log(event)
+    var chosenAnswer = event.target.value
+​
+    if(chosenAnswer == true){
+        //do something
+    } else {
+        // do something else
+    }
+})
+})
 
 function startGame(){
     //user clicks on start game and questions appear
