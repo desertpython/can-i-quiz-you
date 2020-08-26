@@ -112,8 +112,8 @@ function questionClick() {
     } else {
       fetchQuestion();
     }
-  }
-  function quizEnd() {
+}
+function quizEnd() {
     // stop timer
     clearInterval(timerId);
   
@@ -127,6 +127,56 @@ function questionClick() {
   
     // hide questions section
     questionsEl.setAttribute("class", "hide");
-  }
+}
+function clockTick() {
+    // update time
+    time--;
+    timerEl.textContent = time;
+  
+    // is any time left?
+    if (time <= 0) {
+      quizEnd();
+    }
+}
+
+function saveHighscore() {
+    // get input value
+    var initials = initialsEl.value.trim();
+  
+    // make sure value exists
+    if (initials !== "") {
+      // get saved scores from localstorage, or set to empty array
+      var highscores =
+        JSON.parse(window.localStorage.getItem("highscores")) || [];
+  
+      // format new score object for current user
+      var newScore = {
+        score: time,
+        initials: initials
+      };
+  
+      // save to localstorage
+      highscores.push(newScore);
+      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+  
+      // move to next page
+      window.location.href = "highscores.html";
+    }
+}
+  
+function checkForEnter(event) {
+    
+    if (event.key === "Enter") {
+      saveHighscore();
+    }
+}
+  
+// user clicks button to submit initials
+submitBtn.onclick = saveHighscore;
+  
+// user clicks button to start quiz
+startBtn.onclick = startQuiz;
+  
+initialsEl.onkeyup = checkForEnter;
   
   
