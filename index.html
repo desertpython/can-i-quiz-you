@@ -4,26 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-    <h1 class="Welcome to the Coding Quiz"></h1>
+    <div class="scores"><a href="highscores.html">View Highscores</a></div>
 
-    <button id="start">Start</button>
-    
-   <br></br>
-    <button id="buttona"></button>
-    <br></br>
-    <button id="buttonb"></button>
-    <br></br>
-    <button id="buttonc"></button>
-    <br></br>
-    <button id="buttond"></button>
-    <br></br>
-    <br></br>
-    <br></br>
-    <button id="submit"></button>
+    <div class="timer">Time: <span id="time">0</span></div>
 
-    <button id="goback"></button>
-    <button id="clearscores"></button>
-</body>
-</html> 
+    <div class="wrapper">
+      <div id="start-screen" class="start">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Welcome to the Coding Quiz! Answer each question correctly before time runs out!
+        </p>
+        <button id="start">Start Quiz</button>
+      </div>
+
+      <div id="questions" class="hide">
+        <h2 id="question-title"></h2>
+        <div id="choices" class="choices"></div>
+      </div>
+
+      <div id="end-screen" class="hide">
+        <h2>All done!</h2>
+        <p>Your final score is <span id="final-score"></span>.</p>
+        <p>
+          Enter initials: <input type="text" id="initials" max="3" />
+          <button id="submit">Submit</button>
+        </p>
+      </div>
+
+      <div id="feedback" class="feedback hide"></div>
+    </div>
+
+    <script src="./questions.js"></script>
+    <script src="./script.js"></script>
+    <script src="./highscores.js"></script>
+  </body>
+</html>
+
