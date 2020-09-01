@@ -60,16 +60,16 @@ function fetchQuestion() {
   choicesEl.innerHTML = "";
 
 
-  thisQuestion.choices.forEach(function(choice, x) {
+  thisQuestion.choices.forEach(function(choice, i) {
    
     var buttonMake = document.createElement("button");
     buttonMake.setAttribute("class", "choice");
     buttonMake.setAttribute("value", choice);
 
-    choiceNode.textContent = x + 1 + ". " + choice;
+    choiceNode.textContent = i + 1 + ". " + choice;
 
   
-    ButtonMake.onclick = questionClick;
+    buttonMake.onclick = questionClick;
 
    
     choicesEl.appendChild(buttonMake);
@@ -136,7 +136,7 @@ function clockTick() {
     }
 }
 
-function saveHighscore() {
+function saveHighScore() {
     
     var initials = initialsEl.value.trim();
   
@@ -154,7 +154,7 @@ function saveHighscore() {
   
      
       highscores.push(newScore);
-      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+      window.localStorage.setItem("scores", JSON.stringify(highscores));
   
      
       window.location.href = "highscores.html";
@@ -164,12 +164,12 @@ function saveHighscore() {
 function checkForEnter(event) {
     
     if (event.key === "Enter") {
-      saveHighscore();
+      saveHighScore();
     }
 }
   
 
-submitBtn.onclick = saveHighscore;
+submitBtn.onclick = saveHighScore;
   
 
 startBtn.onclick = startQuiz;
