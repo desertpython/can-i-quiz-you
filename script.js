@@ -33,6 +33,7 @@ var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
+var currentQuestionSpot=0;
 
 function startQuiz() {
   
@@ -66,7 +67,7 @@ function fetchQuestion() {
     buttonMake.setAttribute("class", "choice");
     buttonMake.setAttribute("value", choice);
 
-    choiceNode.textContent = i + 1 + ". " + choice;
+    buttonMake.textContent = i + 1 + ". " + choice;
 
   
     buttonMake.onclick = questionClick;
