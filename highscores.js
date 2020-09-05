@@ -21,8 +21,11 @@ function highScoreEmpty() {
     window.localStorage.removeItem("highscores");
     window.location.reload();
 }
-  
-document.getElementById("clear").onclick = highScoreEmpty;
+
+var clear = document.getElementById("clear");
+if (clear){
+  clear.onclick = highScoreEmpty;
+};
   
 
 highScoreShow();
